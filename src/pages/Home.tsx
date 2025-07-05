@@ -1,5 +1,6 @@
 import Hero from '@/components/layout/Hero';
 import { Helmet } from 'react-helmet';
+import Books from './Books';
 
 const Home = () => {
     return (
@@ -9,9 +10,8 @@ const Home = () => {
                     <title>Library Management System</title>
                     <meta name="description" content="Books" />
                 </Helmet>
-                <Hero /> 
-                {/* <Books />
-                <Statistic /> */}
+                <Hero />
+                <Books />
             </div>
         </div>
     );

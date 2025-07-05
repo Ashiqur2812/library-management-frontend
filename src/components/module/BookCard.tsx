@@ -1,8 +1,9 @@
 import type { IBook } from "types";
 import { Button } from "../ui/button";
-import { Pencil, Trash2, BookOpen, Bookmark } from "lucide-react";
+import { Pencil, Trash2, BookOpen, Bookmark, ListCollapse } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 interface BookProps {
     book: IBook,
@@ -50,10 +51,6 @@ function BookCard({
                                     <h2 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">
                                         {book.title}
                                     </h2>
-                                    {/* <p className="text-sm text-amber-600 dark:text-amber-400 font-medium flex items-center">
-                                        <Star className="w-4 h-4 mr-1 fill-amber-400 stroke-amber-400" />
-                                        {book.rating || "4.5"} Rating
-                                    </p> */}
                                 </div>
                                 <Bookmark className="text-gray-400 hover:text-amber-500 cursor-pointer" />
                             </div>
@@ -106,6 +103,12 @@ function BookCard({
                                     >
                                         <Pencil className="w-4 h-4 mr-1" />
                                     </Button>
+                                    <Link to={`/books/${book._id}`}>
+                                        <Button variant="outline">
+                                            <ListCollapse className="w-4 h-4 mr-1" />
+                                            Book Details
+                                        </Button>
+                                    </Link>
                                     <Button
                                         variant="ghost"
                                         className="text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 cursor-pointer"
