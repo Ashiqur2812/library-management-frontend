@@ -17,7 +17,7 @@ interface GetBooksResponse {
 export const bookApi = createApi({
     reducerPath: '/bookApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://library-management-hp2duxk4m-muhammad-ashiqur-rahmans-projects.vercel.app/'
+        baseUrl: 'https://library-management-ashiqur-rahman-server.vercel.app/'
     }),
     tagTypes: ['books', 'borrows'],
     endpoints: (build) => ({
