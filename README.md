@@ -1,69 +1,195 @@
-# React + TypeScript + Vite
+# Minimal Library Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalist yet powerful Library Management System built with **React**, **Redux Toolkit Query**, **TypeScript**, and a **Node.js/Express + MongoDB** backend. This project demonstrates clean architecture, responsive UI/UX, and robust state management, offering core library functionalities including book management and borrowing operations — all without the complexities of authentication or payment gateways.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Public Access
+- No login required — full access to all routes.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Book Management
+- List, add, edit, delete, and borrow books.
+- View key attributes: Title, Author, Genre, ISBN, Copies, Availability.
+- Auto-mark books unavailable when copies reach zero.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Borrowing System
+- Borrow book form with quantity and due date.
+- Quantity limit = available copies.
+- Redirect to a borrow summary upon success.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Borrow Summary
+- Aggregated view of borrowed books.
+- Displays title, ISBN, and total borrowed quantity.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### UI Components
+- Responsive design (Mobile, Tablet, Desktop).
+- Navigation bar, Book Table, Borrow Form, Footer.
+
+
+## Tech Stack
+
+### Frontend
+- **React 19 + TypeScript**
+- **Redux Toolkit + RTK Query**
+- **Tailwind CSS** (or Plain CSS)
+- **React Router DOM**
+- **Zod**, **React Hook Form** for schema-safe forms
+- **Framer Motion**, **Lucide Icons**, **Radix UI**
+
+### Backend
+- **Node.js + Express**
+- **MongoDB + Mongoose**
+- Modular MVC structure
+- Environment management with **dotenv**
+
+---
+
+## Project Structure
+
+### Frontend
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+├── components/
+├── features/
+│   ├── books/
+│   └── borrows/
+├── pages/
+├── app/           # Redux Store & API setup
+├── routes/
+└── main.tsx
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+
+### Backend
+
+```
+
+src/
+├── controllers/
+├── models/
+├── routes/
+├── services/
+├── utils/
+└── server.ts
+
+````
+
+---
+
+##  Installation
+
+###  Prerequisites
+- Node.js ≥ 18
+- MongoDB ≥ 6.0
+- Yarn or npm
+
+###  Clone the Repo
+
+```bash
+git clone https://github.com/Ashiqur2812/library-management-frontend
+cd library-management
+````
+
+###  Backend Setup
+
+```bash
+cd backend
+npm install
+cp .env.example .env # Add your MongoDB URI
+npm run dev
+```
+
+###  Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+##  Usage
+
+1. Navigate to `/books` to view all books.
+2. Use "Add Book" to include a new entry.
+3. Edit/Delete books inline from the book list.
+4. Borrow any available book via the "Borrow" button.
+5. View total borrow data on `/borrow-summary`.
+
+---
+
+##  API Overview
+
+| Endpoint              | Method | Description                       |
+| --------------------- | ------ | --------------------------------- |
+| `/api/books`          | GET    | Fetch all books (with pagination) |
+| `/api/books`          | POST   | Add a new book                    |
+| `/api/books/:id`      | PUT    | Update a book                     |
+| `/api/books/:id`      | DELETE | Delete a book                     |
+| `/api/borrow/:bookId` | POST   | Borrow a book                     |
+| `/api/borrow-summary` | GET    | Get aggregate borrowed data       |
+
+---
+
+##  UI/UX
+
+*  Fully responsive layout (Tailwind CSS)
+*  Smooth notifications via **react-hot-toast**
+*  Clean modals with **Radix UI**
+*  Simple animations using **Framer Motion**
+
+---
+
+## 🔧 Configuration
+
+### Backend `.env`
+
+```env
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/libraryDB
+```
+
+### Frontend `vite.config.ts` (if proxying)
+
+```ts
+server: {
+  proxy: {
+    '/api': 'http://localhost:5000'
+  }
+}
+```
+
+---
+
+##  Examples
+
+```ts
+// RTK Query - Fetch All Books
+const { data, isLoading } = useGetAllBooksQuery();
+
+// Borrow Form Schema (Zod)
+const schema = z.object({
+  quantity: z.number().min(1),
+  dueDate: z.string().nonempty()
+});
+```
+
+---
+
+##  Troubleshooting
+
+| Issue                          | Solution                                    |
+| ------------------------------ | ------------------------------------------- |
+| MongoDB not connecting         | Check `.env` URI and MongoDB service        |
+| API call failing (CORS)        | Ensure `cors()` is enabled in Express       |
+| Form validation not working    | Ensure `zod` + `react-hook-form` setup      |
+| UI not updating after mutation | Check RTK Query cache invalidation settings |
+
+---
+
+
