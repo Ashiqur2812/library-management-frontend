@@ -1,6 +1,6 @@
 import type { IBook } from "types";
 import { Button } from "../ui/button";
-import { Pencil, Trash2, BookOpen, Bookmark, ListCollapse } from "lucide-react";
+import { Pencil, Trash2, BookOpen, Bookmark } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
@@ -24,7 +24,7 @@ function BookCard({
         <motion.div
             whileHover={{ y: -10 }}
             whileTap={{ scale: 0.98 }}
-            className="w-10/12 mx-auto"
+            className=" lg:w-11/12 lg:mx-auto"
         >
             <Card className="rounded-2xl border-0 shadow-xl overflow-hidden h-full bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
                 <CardContent className="p-0 h-full flex flex-col">
@@ -95,7 +95,7 @@ function BookCard({
                                     Borrow Book
                                 </Button>
 
-                                <div className="flex gap-2">
+                                <div className="flex flex-col md:flex-row gap-2">
                                     <Button
                                         variant="outline"
                                         onClick={() => onEdit(book)}
@@ -105,8 +105,8 @@ function BookCard({
                                     </Button>
                                     <Link to={`/books/${book._id}`}>
                                         <Button className="cursor-pointer" variant="outline">
-                                            <ListCollapse className="w-4 h-4 mr-1  " />
-                                            Book Details
+                                            {/* <ListCollapse className="w-4 h-4 mr-1  " /> */}
+                                            Details
                                         </Button>
                                     </Link>
                                     <Button

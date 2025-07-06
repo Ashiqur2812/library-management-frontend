@@ -56,7 +56,7 @@ const AddBook = () => {
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-teal-500 to-sky-600 mb-6 shadow-lg">
                         <FaBook className="text-white text-3xl" />
                     </div>
-                    <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         Add New Book to Library
                     </h1>
                 </motion.div>
@@ -68,7 +68,7 @@ const AddBook = () => {
                 >
                     <div className="relative bg-gradient-to-r from-teal-600 to-sky-700 p-6">
                         <div className="flex justify-between items-center">
-                            <h2 className="text-2xl font-bold text-white">Book Information</h2>
+                            <h2 className="text-lg md:text-2xl font-bold text-white">Book Information</h2>
                             <button
                                 onClick={() => navigate(-1)}
                                 className="text-white/80 hover:text-white transition-colors flex items-center cursor-pointer"

@@ -84,7 +84,7 @@ const Books = () => {
             )}
             <div className="mb-6 flex justify-between ">
                 {location.pathname === '/books' ? (
-                    <h1 className="text-2xl lg:text-4xl font-bold min-w-xs mx-auto text-center mb-5">All Books</h1>
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold min-w-xs mx-auto text-center mb-5">All Books</h1>
                 ) : (
                     <h1 className="text-2xl font-bold "></h1>
                 )}
@@ -107,7 +107,7 @@ const Books = () => {
                 )}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-0 mx-0 lg:mx-20">
                 {isLoading
                     ? Array.from({ length: 9 }).map((_, i) => <CardSkeleton key={i} />)
                     : slicedBooks?.map((book) => (
