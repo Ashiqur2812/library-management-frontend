@@ -73,7 +73,7 @@ const Books = () => {
 
 
     return (
-        <div className='min-h-screen py-10 px-4 sm:px-8 lg:px-20'>
+        <div className='min-h-screen py-10'>
             {location.pathname === '/books' ? (
                 <Helmet>
                     <title>All Books</title>
@@ -82,9 +82,9 @@ const Books = () => {
             ) : (
                 ""
             )}
-            <div className="mb-6 flex justify-between">
+            <div className="mb-6 flex justify-between ">
                 {location.pathname === '/books' ? (
-                    <h1 className="text-2xl lg:text-4xl font-bold text-center">All Books</h1>
+                    <h1 className="text-2xl lg:text-4xl font-bold min-w-xs mx-auto text-center mb-5">All Books</h1>
                 ) : (
                     <h1 className="text-2xl font-bold "></h1>
                 )}
@@ -93,7 +93,7 @@ const Books = () => {
                     <Link
                         to='/books'
                         aria-label=""
-                        className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 dark:text-deep-purple-300 hover:text-deep-purple-800 dark:hover:text-deep-purple-500 text-center"
+                        className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 dark:text-deep-purple-300 hover:text-deep-purple-800 dark:hover:text-deep-purple-500 "
                     >
                         All Books
                         <svg

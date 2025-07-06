@@ -1,42 +1,43 @@
-import BorrowDialog from "@/components/module/BorrowDialog";;
+// import BorrowDialog from "@/components/module/BorrowDialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {  useFetchBookByIdQuery, useGetBooksQuery } from "@/redux/api/bookApi";
-import { useEffect, useState } from "react";
+import { useFetchBookByIdQuery } from "@/redux/api/bookApi";
+// import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
 import { BookOpen, LibraryBig, User, Hash, Copy, ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Loader from "@/components/module/Loader";
-import { useGetBorrowBooksQuery } from "@/redux/api/borrowApi";
+// import { useGetBorrowBooksQuery } from "@/redux/api/borrowApi";
 
 export default function BookDetails() {
     const { id } = useParams<{ id: string; }>();
     const navigate = useNavigate();
-    const [borrowOpen, setBorrowOpen] = useState(false);
-    const [page, setPage] = useState(1);
-    const limit = 9;
+    // const [borrowOpen, setBorrowOpen] = useState(false);
+    // const [page, setPage] = useState(1);
+    // const limit = 9;
 
-    const { data, isLoading, isError, refetch } = useFetchBookByIdQuery(id!);
-    const { refetch: refetchBorrows } = useGetBorrowBooksQuery(undefined);
-    const { refetch: refetchBooks } = useGetBooksQuery({ page, limit });
+    const { data: book, isLoading, isError } = useFetchBookByIdQuery(id!);
+    // const { refetch: refetchBorrows } = useGetBorrowBooksQuery(undefined);
+    // const { refetch: refetchBooks } = useGetBooksQuery({ page, limit });
 
-    const book = data?.data;
+    // const book = data?.data;
+    console.log(book);
 
-    const handleBorrow = () => {
-        setBorrowOpen(true);
-    };
+    // const handleBorrow = () => {
+    //     setBorrowOpen(true);
+    // };
 
-    useEffect(() => {
-        setPage(1);
-    }, [page]);
+    // useEffect(() => {
+    //     setPage(1);
+    // }, [page]);
 
     if (isLoading) return <Loader />;
     if (isError || !book)
         return (
-            <div className="max-w-6xl mx-auto p-6 text-center">
+            <div className="max-w-7xl mx-auto text-center min-h-screen">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -46,11 +47,11 @@ export default function BookDetails() {
                         The book is not found
                     </h2>
                     <p className="text-lime-700 dark:text-lime-300 mb-6">
-                        Sorry, the book you looking is not in our list
+                        Sorry, the book you looking is not in the list
                     </p>
                     <Button
                         variant="outline"
-                        className="border-lime-500 text-lime-700 hover:bg-lime-100 dark:hover:bg-lime-900"
+                        className="border-lime-500 text-lime-700 hover:bg-lime-100 dark:hover:bg-lime-900 cursor-pointer"
                         onClick={() => navigate("/books")}
                     >
                         <ChevronLeft className="mr-2 h-4 w-4" />
@@ -63,15 +64,15 @@ export default function BookDetails() {
     return (
         <>
             <Helmet>
-                <title>{book?.title}</title>
-                <meta name="description" content={book?.description} />
+                <title>{book.title}</title>
+                <meta name="description" content={book.description} />
             </Helmet>
 
-            <div className="max-w-6xl mx-auto p-4 md:p-6">
+            <div className="max-w-7xl mx-auto p-4 md:p-6">
                 {/* Back button */}
                 <Button
                     variant="ghost"
-                    className="mb-4 text-lime-700 hover:bg-lime-100 dark:text-lime-300 dark:hover:bg-lime-900/50"
+                    className="mb-4 text-lime-700 hover:bg-lime-100 dark:text-lime-300 dark:hover:bg-lime-900/50 cursor-pointer"
                     onClick={() => navigate("/books")}
                 >
                     <ChevronLeft className="mr-2 h-4 w-4" />
@@ -149,7 +150,7 @@ export default function BookDetails() {
                                         <Copy className="mr-3 h-5 w-5 text-lime-700 dark:text-lime-400 mt-1 flex-shrink-0" />
                                         <div>
                                             <p className="text-sm text-lime-700 dark:text-lime-400">Copies</p>
-                                            <p className="font-medium">{book.copies} টি</p>
+                                            <p className="font-medium">{book.copies}</p>
                                         </div>
                                     </div>
 
@@ -178,7 +179,7 @@ export default function BookDetails() {
                                 </div>
 
                                 {/* Borrow button */}
-                                <motion.div
+                                {/* <motion.div
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="flex justify-center"
@@ -193,14 +194,14 @@ export default function BookDetails() {
                                     >
                                         {book.available ? "Borrow Book" : "Unavailable now"}
                                     </Button>
-                                </motion.div>
+                                </motion.div> */}
                             </motion.div>
                         </div>
                     </div>
                 </motion.div>
 
                 {/* Borrow dialog */}
-                <BorrowDialog
+                {/* <BorrowDialog
                     book={book}
                     open={borrowOpen}
                     onOpenChange={setBorrowOpen}
@@ -209,7 +210,7 @@ export default function BookDetails() {
                         refetch();
                         refetchBooks();
                     }}
-                />
+                /> */}
             </div>
         </>
     );

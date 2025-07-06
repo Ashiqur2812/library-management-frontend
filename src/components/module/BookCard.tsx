@@ -24,13 +24,13 @@ function BookCard({
         <motion.div
             whileHover={{ y: -10 }}
             whileTap={{ scale: 0.98 }}
-            className="h-full"
+            className="w-10/12 mx-auto"
         >
             <Card className="rounded-2xl border-0 shadow-xl overflow-hidden h-full bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
                 <CardContent className="p-0 h-full flex flex-col">
                     {/* Book Cover with Glossy Effect */}
-                    <div className="relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10"></div>
+                    <div className="relative overflow-hidden ">
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 z-10"></div>
                         <div className="absolute top-4 left-4 z-10">
                             <div className={`px-2 py-1 rounded-full text-xs font-bold ${book.available ? "bg-emerald-500/90 text-white" : "bg-rose-500/90 text-white"}`}>
                                 {book.available ? "Available" : "Unavailable"}
@@ -44,7 +44,7 @@ function BookCard({
                     </div>
 
                     {/* Book Details */}
-                    <div className="p-5 flex-grow flex flex-col">
+                    <div className="p-5 flex-grow flex flex-col ">
                         <div className="mb-4">
                             <div className="flex justify-between items-start">
                                 <div>
@@ -90,7 +90,7 @@ function BookCard({
                             <div className="flex justify-between items-center">
                                 <Button
                                     onClick={() => onBorrow(book)}
-                                    className="cursor-pointer bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 text-white shadow-lg shadow-sky-500/20 dark:shadow-sky-700/30"
+                                    className="cursor-pointer bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 text-white shadow-lg shadow-sky-500/20 dark:shadow-sky-700/30 mr-2"
                                 >
                                     Borrow Book
                                 </Button>
@@ -104,8 +104,8 @@ function BookCard({
                                         <Pencil className="w-4 h-4 mr-1" />
                                     </Button>
                                     <Link to={`/books/${book._id}`}>
-                                        <Button variant="outline">
-                                            <ListCollapse className="w-4 h-4 mr-1" />
+                                        <Button className="cursor-pointer" variant="outline">
+                                            <ListCollapse className="w-4 h-4 mr-1  " />
                                             Book Details
                                         </Button>
                                     </Link>
