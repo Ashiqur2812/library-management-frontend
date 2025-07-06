@@ -36,19 +36,19 @@ const Hero = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8, duration: 0.8 }}
-                            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8"
+                            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 "
                         >
                             Discover the future of library management with our intuitive platform.
                             Effortlessly organize, track, and manage your entire collection while
                             providing an exceptional experience for your readers.
                         </motion.p>
-
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1, duration: 0.6 }}
                             className="flex flex-col sm:flex-row gap-4"
                         >
+                            
                             <Link
                                 to="/books"
                                 className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full group shadow-lg hover:shadow-xl transition-all duration-300"
@@ -116,11 +116,9 @@ const Hero = () => {
                     <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-sky-600/30 z-10"></div>
                         <div className="relative w-full h-[500px]">
-                            <div className="">
-                                <div className="">
+                            
                                     <img src={image} alt="" />
-                                </div>
-                            </div>
+                               
                         </div>
                     </div>
                 </motion.div>

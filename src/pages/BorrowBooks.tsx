@@ -3,6 +3,7 @@ import { useGetBorrowBooksQuery } from "@/redux/api/borrowApi";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import type { BorrowProps } from "types";
+import bookImage from '../assets/book.png'
 
 export default function BorrowBooks() {
     const { data: borrows, isError, isLoading } = useGetBorrowBooksQuery(undefined);
@@ -23,6 +24,7 @@ export default function BorrowBooks() {
             >
                 Borrow Summary
             </motion.h1>
+            
 
             {isLoading && <BorrowSkeleton />}
             {isError && (
@@ -60,6 +62,9 @@ export default function BorrowBooks() {
                     )}
                 </ul>
             )}
+            <div className='w-28 mt-4'>
+                <img src={bookImage} alt="" />
+            </div>
         </div>
     );
 }

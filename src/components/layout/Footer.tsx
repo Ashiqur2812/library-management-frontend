@@ -1,6 +1,7 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaPinterestP } from 'react-icons/fa';
 import { IoBookSharp, IoLocationSharp, IoCallSharp, IoMailSharp } from 'react-icons/io5';
 import { motion } from 'framer-motion';
+import bookImage from '../../assets/book.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -65,6 +66,9 @@ const Footer = () => {
                                 </motion.a>
                             ))}
                         </div>
+                        <div className='w-20 mt-8'>
+                            <img src={bookImage} alt="" />
+                        </div>
                     </div>
 
                     {/* Quick Links */}
@@ -79,7 +83,7 @@ const Footer = () => {
                                 { text: "New Arrivals", link: "/new" },
                                 { text: "Best Sellers", link: "/bestsellers" },
                                 { text: "Featured Authors", link: "/authors" },
-                                { text: "Borrow Summary", link: "/borrow-summary" },
+                                { text: "Borrow Summary", link: "/borrow-book" },
                                 { text: "Book Categories", link: "/categories" },
                             ].map((item, index) => (
                                 <motion.li

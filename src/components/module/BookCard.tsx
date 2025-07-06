@@ -39,7 +39,7 @@ function BookCard({
                         <img
                             src={book?.image}
                             alt={book?.title}
-                            className="w-full h-80 object-cover"
+                            className="w-full h-96 object-cover"
                         />
                     </div>
 

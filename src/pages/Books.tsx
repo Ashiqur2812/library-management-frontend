@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { Link, useLocation } from "react-router";
 import type { IBook } from "types";
 
+
 interface BookApi {
     books: IBook[],
     meta: {
@@ -93,7 +94,7 @@ const Books = () => {
                     <Link
                         to='/books'
                         aria-label=""
-                        className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 dark:text-deep-purple-300 hover:text-deep-purple-800 dark:hover:text-deep-purple-500 "
+                        className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 dark:text-deep-purple-300 hover:text-deep-purple-800 dark:hover:text-deep-purple-500 mr-0 lg:mr-24"
                     >
                         All Books
                         <svg
@@ -107,7 +108,7 @@ const Books = () => {
                 )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-0 mx-0 lg:mx-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-y-16 lg:mx-20">
                 {isLoading
                     ? Array.from({ length: 9 }).map((_, i) => <CardSkeleton key={i} />)
                     : slicedBooks?.map((book) => (
