@@ -33,7 +33,7 @@ const Footer = () => {
                     }}
                 >
                     <div className={`w-8 h-10 rounded-md ${i % 3 === 0 ? 'bg-yellow-400/90' :
-                        i % 3 === 1 ? 'bg-red-500/90' : 'bg-blue-500/90'
+                        i % 3 === 1 ? 'bg-rose-500/90' : 'bg-sky-500/90'
                         } shadow-lg rotate-12`}></div>
                 </motion.div>
             ))}

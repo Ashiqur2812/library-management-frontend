@@ -4,7 +4,7 @@ import image from '../../assets/Book lover-bro.svg';
 
 const Hero = () => {
     return (
-        <div className="relative overflow-hidden py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl px-4">
+        <div className="relative overflow-hidden py-16 mx-auto w-11/12 px-4">
             <div className="grid gap-10 lg:grid-cols-2 items-center">
                 <motion.div
                     className="flex flex-col justify-center"
@@ -36,7 +36,7 @@ const Hero = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8, duration: 0.8 }}
-                            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 "
+                            className="text-lg md:text-xl text-gray-700 dark:text-gray-300  mb-8"
                         >
                             Discover the future of library management with our intuitive platform.
                             Effortlessly organize, track, and manage your entire collection while
@@ -87,7 +87,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.2, duration: 0.8 }}
-                        className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4"
+                        className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4"
                     >
                         {[
                             { label: "Books", value: "10K+" },
@@ -115,10 +115,8 @@ const Hero = () => {
                 >
                     <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-sky-600/30 z-10"></div>
-                        <div className="relative w-full h-[500px]">
-                            
-                                    <img src={image} alt="" />
-                               
+                        <div className="relative w-full h-full md:h-[620px]">
+                            <img src={image} alt="" />
                         </div>
                     </div>
                 </motion.div>
