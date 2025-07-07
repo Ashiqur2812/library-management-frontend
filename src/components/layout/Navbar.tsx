@@ -25,7 +25,7 @@ const Navbar = () => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <nav className="hidden md:flex space-x-8 text-xl font-medium text-gray-500">
+                    <nav className="hidden md:flex space-x-8 text-lg font-medium text-gray-500">
                         {navLinks.map((link) => (
                             <NavLink
                                 key={link.path}
