@@ -4,7 +4,7 @@ import image from '../../assets/Book lover-bro.svg';
 
 const Hero = () => {
     return (
-        <div className="relative overflow-hidden py-16 mx-auto w-11/12 px-4">
+        <div className="relative overflow-hidden py-8 mx-auto w-11/12 px-4">
             <div className="grid gap-10 lg:grid-cols-2 items-center">
                 <motion.div
                     className="flex flex-col justify-center"
