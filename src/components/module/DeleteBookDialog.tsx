@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { Trash2, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 interface Props {
     open: boolean;
@@ -33,7 +34,7 @@ export default function DeleteBookDialog({
     }, [open]);
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
+        return <Loader />;
     }
 
     const handleDelete = async () => {
