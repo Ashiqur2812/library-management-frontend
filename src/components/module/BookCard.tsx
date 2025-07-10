@@ -19,7 +19,7 @@ function BookCard({
     onBorrow
 }: BookProps) {
 
-    console.log(book);
+    // console.log(book);
     return (
         <motion.div
             whileHover={{ y: -10 }}
