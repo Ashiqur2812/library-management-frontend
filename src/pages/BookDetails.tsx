@@ -1,40 +1,24 @@
-// import BorrowDialog from "@/components/module/BorrowDialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useFetchBookByIdQuery } from "@/redux/api/bookApi";
-// import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
 import { BookOpen, LibraryBig, User, Hash, Copy, ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Loader from "@/components/module/Loader";
-// import { useGetBorrowBooksQuery } from "@/redux/api/borrowApi";
 
 export default function BookDetails() {
     const { id } = useParams<{ id: string; }>();
     const navigate = useNavigate();
-    // const [borrowOpen, setBorrowOpen] = useState(false);
-    // const [page, setPage] = useState(1);
-    // const limit = 9;
 
     const { data, isLoading, isError } = useFetchBookByIdQuery(id!);
-    // const { refetch: refetchBorrows } = useGetBorrowBooksQuery(undefined);
-    // const { refetch: refetchBooks } = useGetBooksQuery({ page, limit });
 
     const book = data?.books;
-    console.log(book);
-
-    // const handleBorrow = () => {
-    //     setBorrowOpen(true);
-    // };
-
-    // useEffect(() => {
-    //     setPage(1);
-    // }, [page]);
-
+    // console.log(book);
     if (isLoading) return <Loader />;
+
     if (isError || !book)
         return (
             <div className="max-w-7xl mx-auto text-center min-h-screen">

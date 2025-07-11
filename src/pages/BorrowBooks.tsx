@@ -7,7 +7,7 @@ import bookImage from '../assets/book.png'
 
 export default function BorrowBooks() {
     const { data: borrows, isError, isLoading } = useGetBorrowBooksQuery(undefined);
-    console.log(borrows)
+    // console.log(borrows)
 
     return (
         <div className="min-h-screen py-10 px-4 sm:px-8 lg:px-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">

@@ -55,7 +55,7 @@ export default function EditBookDialog({
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const [updateBook] = useUpdateBookMutation();
-    console.log(updateBook)
+    // console.log(updateBook)
 
     useEffect(() => {
         if (book) {

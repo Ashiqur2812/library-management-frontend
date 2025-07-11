@@ -31,7 +31,7 @@ const Books = () => {
         isError: boolean,
         refetch: () => void;
     };
-    console.log(booksData);
+    // console.log(booksData);
 
     const { refetch: refetchBorrows } = useGetBorrowBooksQuery(undefined);
     const [selectBook, setSelectBook] = useState<IBook | null>(null);

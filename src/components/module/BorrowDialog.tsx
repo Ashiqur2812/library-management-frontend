@@ -67,7 +67,7 @@ export default function BorrowDialog({
                 navigate("/borrow-book");
             }, 1500);
         } catch (error) {
-            console.error(error);
+            // console.error(error);
             toast.error("Failed to borrow book.");
             setIsProcessing(false);
         }
